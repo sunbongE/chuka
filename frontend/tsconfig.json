@@ -5,6 +5,24 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["vite/client"], //설정없이 import.meta.env 사용 시 TS error 발생
+
+    // 절대경로 설정
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@apis": ["apis/*"],
+      "@assets": ["assets/*"],
+      "@common": ["common/*"],
+      "@components": ["components/*"],
+      "@pages/*": ["pages/*"],
+      "@routers/*": ["routers/*"],
+      "@services/*": ["services/*"],
+      "@stores/*": ["stores/*"],
+      "@styles/*": ["styles/*"],
+      "@types/*": ["types/*"],
+      "@utils/*": ["utils/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
