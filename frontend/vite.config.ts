@@ -8,11 +8,12 @@ export default defineConfig({
   plugins: [
     react(),
     tsConfigPaths(),
-    VitePWA({
-      registerType: "autoUpdate",
-      devOptions: { enabled: true },
-      manifest: {
+  //   VitePWA({
+  //     registerType: "autoUpdate",
+  //     devOptions: { enabled: true },
+  //     // manifest: {
         
-      }
-   })],
+  //     // }
+  //  })
+  ],
 });

@@ -1,4 +1,4 @@
-import { createGlobalStyle, DefaultTheme } from 'styled-components'
+import { createGlobalStyle} from 'styled-components'
 import reset from 'styled-reset'
 import { colors, sizes } from './theme'
 
@@ -36,9 +36,6 @@ export const GlobalStyle = createGlobalStyle`
         max-width: ${sizes.maxWidth};
         min-height: 100dvh;
         margin: 0 auto;
-        background: ${({ theme }: { theme: DefaultTheme }) =>
-          theme.color.background};
-        color: ${({ theme }: { theme: DefaultTheme }) => theme.color.text};
         @media only screen and (min-width: 430px) {
             width: 430px;
         }
@@ -57,6 +54,7 @@ export const GlobalStyle = createGlobalStyle`
         border: none;
         cursor: pointer;
         background: none;
+        border-radius: 10px;
         &:disabled {
             background-color: #CACFD9;
         }
@@ -64,7 +62,6 @@ export const GlobalStyle = createGlobalStyle`
     input {
         font-size: 1em;
         outline: none;
-        color: ${({ theme }: { theme: DefaultTheme }) => theme.color.text};
         &:focus {
             outline: none;
         }
