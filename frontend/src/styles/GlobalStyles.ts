@@ -60,9 +60,11 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
     input {
-        font-size: 1em;
+        font-size: 12px;
         outline: none;
+        border-radius: 10px;
         &:focus {
+            border-color: ${colors.pink01};
             outline: none;
         }
         &::placeholder {
