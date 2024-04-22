@@ -3,7 +3,7 @@ version: '3.3'
 services:
   configServer:
     container_name: configServer
-    image: taehopark/luckyseven-configServer
+    image: taehopark/configserver
     build:
       context: backend/configServer
       dockerfile: Dockerfile
