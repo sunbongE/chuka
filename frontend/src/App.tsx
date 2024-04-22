@@ -1,13 +1,11 @@
 import styled from "styled-components";
-import { colors } from "./styles/theme";
-import Button from "@/common/button";
-import login from "/icon/icon_login.png";
+import HomeRouter from "@routers/HomeRouter";
+import { GlobalStyle } from "./styles/GlobalStyles";
 
 const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: ${colors.gray01};
 `;
 
 const Wrap = styled.div`
@@ -17,8 +15,8 @@ const Wrap = styled.div`
 function App() {
   return (
     <>
-      <img src={login} />
-      <Button children={"확인"} onClick={() => console.log("확인")}></Button>
+      <GlobalStyle />
+      <HomeRouter />
     </>
   );
 }
