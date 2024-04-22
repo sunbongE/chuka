@@ -1,4 +1,4 @@
-package com.luckyseven.configServer.security;
+package com.luckyseven.eureka.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

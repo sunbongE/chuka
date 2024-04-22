@@ -1,15 +1,26 @@
 version: '3.3'
 
 services:
-  configServer:
+  configserver:
     container_name: configServer
-    image: taehopark/luckyseven-configServer
+    image: taehopark/luckyseven-configserver
     build:
       context: backend/configServer
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "8082:8080"
+      - "9000:9000"
+    networks:
+      - jenkins-network
+  eureka:
+    container_name: eureka
+    image: taehopark/luckyseven-eureka
+    build:
+      context: backend/eureka
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8761:8761"
     networks:
       - jenkins-network
 
