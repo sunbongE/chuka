@@ -57,9 +57,7 @@ pipeline {
                         component.each { entry ->
                             if (entry.value) {
                                 def var = entry.key
-                                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'Docker-hub', usernameVariable: 'DOCKER_USER_ID', passwordVariable: 'DOCKER_USER_PASSWORD']]) {
-                                sh "docker compose -p luckyseven pull ${DOCKER_USER_ID}/luckyseven-${var.toLowerCase()}"
-                                }
+                                sh "docker compose -p luckyseven pull ${var.toLowerCase()}"
                             }
                         }
                     }
