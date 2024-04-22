@@ -10,7 +10,6 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: ${colors.gray01};
 `;
 
 const Wrap = styled.div`

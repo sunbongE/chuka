@@ -1,8 +1,12 @@
+import { BrowserRouter } from "react-router-dom";
+
+
 import styled from "styled-components";
-import { colors } from "./styles/theme";
 import HomePage from "@pages/home/HomePage";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import ScrollToTop from "./utils/scrollToTop";
+import HomeRouter from "@routers/HomeRouter";
+
 
 const Container = styled.div`
   display: flex;
@@ -16,10 +20,11 @@ const Wrap = styled.div`
 
 function App() {
   return (
-    <>
-      <img src={login} />
-      <Button children={"확인"} onClick={() => console.log("확인")}></Button>
-    </>
+    <BrowserRouter>
+      <GlobalStyle />
+      {/* <ScrollToTop /> */}
+      <HomeRouter />
+    </BrowserRouter>
   );
 }
 
