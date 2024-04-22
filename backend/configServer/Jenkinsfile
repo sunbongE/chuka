@@ -33,9 +33,9 @@ pipeline {
                     steps {
                         script {
                             component.each { entry ->
-                                if (entry.value && entry.key == "configServer") {
+                                if (entry.value) {
                                     def var = entry.key
-                                    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'Docker-Hub', usernameVariable: 'DOCKER_USER_ID', passwordVariable: 'DOCKER_USER_PASSWORD']]) {
+                                    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'Docker-hub', usernameVariable: 'DOCKER_USER_ID', passwordVariable: 'DOCKER_USER_PASSWORD']]) {
                                         sh "docker push ${DOCKER_USER_ID}/luckyseven-${var.toLowerCase()}"
                                     }
                                 }
@@ -55,7 +55,7 @@ pipeline {
                 steps {
                     script {
                         component.each { entry ->
-                            if (entry.value && entry.key == "configServer") {
+                            if (entry.value) {
                                 def var = entry.key
                                 sh "docker compose -p luckyseven pull ${var.toLowerCase()}"
                             }
