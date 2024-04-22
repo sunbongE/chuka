@@ -5,15 +5,51 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    outDir:'dev-dist'
+  },
   plugins: [
     react(),
     tsConfigPaths(),
-  //   VitePWA({
-  //     registerType: "autoUpdate",
-  //     devOptions: { enabled: true },
-  //     // manifest: {
-        
-  //     // }
-  //  })
+    VitePWA({
+      registerType: "autoUpdate",
+      devOptions: { enabled: true },
+      manifest: {
+        name: "chuka",
+        short_name: "chuka",
+        description: "chukachuka",
+        display: "standalone",
+        orientation: "portrait",
+        start_url: "/",
+        theme_color: "#ffffff",
+        icons: [
+          {
+            src: "icon/android-chrome-192x192.png",
+            type: "image/png",
+            sizes: "192x192",
+            purpose: "any",
+          },
+          {
+            src: "icon/android-chrome-192x192.png",
+            type: "image/png",
+            sizes: "192x192",
+            purpose: "maskable",
+          },
+          {
+            src: "icon/android-chrome-512x512.png",
+            type: "image/png",
+            sizes: "512x512",
+            purpose: "any",
+          },
+          {
+            src: "icon/android-chrome-512x512.png",
+            type: "image/png",
+            sizes: "512x512",
+            purpose: "maskable",
+          },
+        ],
+      },
+    }),
   ],
+
 });

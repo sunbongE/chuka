@@ -1,24 +1,24 @@
-import { createGlobalStyle} from 'styled-components'
-import reset from 'styled-reset'
-import { colors, sizes } from './theme'
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
+import { colors, sizes } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
     :root {
-        font-family: 'Pretendard', Arial, Helvetica, sans-serif;
+        font-family: 'Pretendard', Arial, Helvetica, sans-serif, 'NanumGgocNaeEum', 'NanumNaMuJeongWeon';
         font-size: 16px;
     }
     * {
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Pretendard', Arial, Helvetica, sans-serif;
+        font-family: 'Pretendard', Arial, Helvetica, sans-serif, 'NanumGgocNaeEum', 'NanumNaMuJeongWeon';
     }
     html, body {
         margin: 0;
         padding: 0;
         font-weight: 400;
         line-height: 1.1;
-        background-color: #f4f4f4;
+        background: linear-gradient(#e2e3ff, #eadeff);
         -ms-overflow-style: none;
         scrollbar-width: none;
         &::-webkit-scrollbar {
@@ -59,15 +59,24 @@ export const GlobalStyle = createGlobalStyle`
             background-color: #CACFD9;
         }
     }
-    input {
-        font-size: 1em;
-        outline: none;
+    label {
         &:focus {
+            color: ${colors.mainPink};
+            outline: none;
+        }
+
+    }
+    input {
+        font-size: 12px;
+        outline: none;
+        border-radius: 10px;
+        &:focus {
+            border-color: ${colors.mainPink};
             outline: none;
         }
         &::placeholder {
-            color: ${colors.gray04};
+            color: ${colors.gray};
             font-weight: 500;
         }
     }
-`
+`;
