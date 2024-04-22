@@ -59,6 +59,13 @@ export const GlobalStyle = createGlobalStyle`
             background-color: #CACFD9;
         }
     }
+    label {
+        &:focus {
+            color: ${colors.pink01};
+            outline: none;
+        }
+
+    }
     input {
         font-size: 12px;
         outline: none;

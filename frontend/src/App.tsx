@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import HomeRouter from "@routers/HomeRouter";
+import { colors } from "./styles/theme";
+import HomePage from "@pages/home/HomePage";
 import { GlobalStyle } from "./styles/GlobalStyles";
+import ScrollToTop from "./utils/scrollToTop";
 
 const Container = styled.div`
   display: flex;
@@ -15,8 +17,8 @@ const Wrap = styled.div`
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <HomeRouter />
+      <img src={login} />
+      <Button children={"확인"} onClick={() => console.log("확인")}></Button>
     </>
   );
 }
