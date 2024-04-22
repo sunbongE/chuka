@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { colors } from "./styles/theme";
-import Button from "@components/atoms/button"
+import Button from "@/common/button";
+import login from "/icon/icon_login.png";
 
 const Container = styled.div`
   display: flex;
@@ -16,6 +17,7 @@ const Wrap = styled.div`
 function App() {
   return (
     <>
+      <img src={login} />
       <Button children={"확인"} onClick={() => console.log("확인")}></Button>
     </>
   );
