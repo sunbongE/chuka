@@ -61,7 +61,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     label {
         &:focus {
-            color: ${colors.pink01};
+            color: ${colors.mainPink};
             outline: none;
         }
 

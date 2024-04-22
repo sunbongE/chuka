@@ -16,12 +16,12 @@ type InputType = {
 const Input = styled.input`
   width: ${(props) => (props.width ? props.width : "339px")};
   height: ${(props) => (props.height ? props.height : "36px")};
-  border: 2px solid ${colors.gray04};
+  border: 2px solid ${colors.gray};
   font-size: 1em;
 `;
 
 const Label = styled.label`
-  color: ${colors.pink01};
+  color: ${colors.mainPink};
 `
 
 const index = (props: InputType) => {
