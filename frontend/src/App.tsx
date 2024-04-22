@@ -8,7 +8,6 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: ${colors.gray01};
 `;
 
 const Wrap = styled.div`
@@ -18,9 +17,8 @@ const Wrap = styled.div`
 function App() {
   return (
     <>
-      <GlobalStyle />
-      {/* <ScrollToTop /> */}
-      <HomePage />
+      <img src={login} />
+      <Button children={"확인"} onClick={() => console.log("확인")}></Button>
     </>
   );
 }
