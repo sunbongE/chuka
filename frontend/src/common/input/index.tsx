@@ -1,30 +1,69 @@
-import React from "react";
+import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 import styled from "styled-components";
 import { colors } from "@/styles/theme";
 
 type InputType = {
-  //   width?: string;
-  //   height?: string;
+  width?: string;
+  height?: string;
+  type?: string;
   value: string;
   id: string;
   placeholder: string;
-  //   fontSize?: string;
-  onChange: (value: string) => void;
-  onKeyUp: (value: string) => void;
+  onInputChange: (value: string) => void;
+  onEnterKeyUp: (value: string) => void;
 };
 
-const Input = styled.input<InputType>`
-  /* width: ${(props) => (props.width ? props.width : "339px")}; */
-  /* height: ${(props) => (props.height ? props.height : "36px")}; */
-  /* font-size: 1em; */
+const Input = styled.input`
+  width: ${(props) => (props.width ? props.width : "339px")};
+  height: ${(props) => (props.height ? props.height : "36px")};
+  border: 2px solid ${colors.gray04};
+  font-size: 1em;
 `;
 
+const Label = styled.label`
+  color: ${colors.pink01};
+`
+
 const index = (props: InputType) => {
-  const { value, id, placeholder, onChange, onKeyUp } = props;
+  const {
+    width,
+    height,
+    type,
+    value,
+    id,
+    placeholder,
+    onInputChange,
+    onEnterKeyUp,
+  } = props;
+
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    if (onInputChange) {
+      onInputChange(e.target.value);
+    }
+  };
+
+  const handleEnterKeyUp = (e: KeyboardEvent<Element>) => {
+    if (e.key === "Enter" && inputValue.trim() !== "") {
+      onEnterKeyUp(inputValue);
+      setInputValue("");
+    }
+  };
 
   return (
     <>
-      <Input />
+      <Input
+        width={width}
+        height={height}
+        type={type}
+        value={value}
+        id={id}
+        placeholder={placeholder}
+        onChange={handleChange}
+        onKeyUp={handleEnterKeyUp}
+      />
     </>
   );
 };
