@@ -1,6 +1,6 @@
-import { createGlobalStyle} from 'styled-components'
-import reset from 'styled-reset'
-import { colors, sizes } from './theme'
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
+import { colors, sizes } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
@@ -59,6 +59,13 @@ export const GlobalStyle = createGlobalStyle`
             background-color: #CACFD9;
         }
     }
+    label {
+        &:focus {
+            color: ${colors.pink01};
+            outline: none;
+        }
+
+    }
     input {
         font-size: 12px;
         outline: none;
@@ -72,4 +79,4 @@ export const GlobalStyle = createGlobalStyle`
             font-weight: 500;
         }
     }
-`
+`;

@@ -1,8 +1,10 @@
-import React from "react";
 import Button from "@/common/button";
 import styled from "styled-components";
 import { colors } from "@styles/theme";
-import login from "icon/icon_login.png";
+import Input from "@common/input"
+import { useState } from "react";
+import Label from "@common/label"
+
 
 const Container = styled.div`
   display: flex;
@@ -16,11 +18,21 @@ const Wrap = styled.div`
 `;
 
 const HomePage = () => {
+
+  const [vvalue, setVvalue] = useState("")
+  
+  const handleChange = (value:string) => {
+    console.log(value);
+    setVvalue(value)
+
+    
+
+  }
+
   return (
     <div>
-      <img src={login} />
-      {/* <Button onClick={()=> (console.log('확인'))}>확인</Button> */}
-      {/* <Button text='확인' onClick={()=> (console.log('확인'))}></Button> */}
+      <Label htmlFor={"id"}>사랑해요</Label>
+      <Input value={vvalue} id={"id"} placeholder={"아이디"} onInputChange={handleChange} onEnterKeyUp={handleChange} />
       <Button children={"확인"} onClick={() => console.log("확인")}></Button>
     </div>
   );
