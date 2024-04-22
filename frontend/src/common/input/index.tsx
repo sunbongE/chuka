@@ -24,7 +24,7 @@ const index = (props: InputType) => {
 
   return (
     <>
-      <Input/>
+      <Input />
     </>
   );
 };

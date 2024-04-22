@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "./styles/theme";
-import Button from "@components/atoms/button";
-import login from "/icon/icon_login.png"
+import Button from "@/common/button";
+import login from "/icon/icon_login.png";
 
 const Container = styled.div`
   display: flex;
