@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  configServer:
+  configserver:
     container_name: configServer
     image: taehopark/luckyseven-configserver
     build:
