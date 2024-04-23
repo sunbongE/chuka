@@ -5,7 +5,7 @@ import { useState } from "react";
 import Label from "@common/label"
 import Modal from "@common/modal"
 import LoginPage from "../login/LoginPage";
-
+import RModal from "@common/responsiveModal"
 
 const Container = styled.div`
   display: flex;
@@ -33,8 +33,9 @@ const HomePage = () => {
   return (
     <div>
       { modalOpen && (
-        <Modal name={"마이페이지"} children={<LoginPage/>} onClose={() => setModalOpen(false)} />
+        <RModal name={"마이페이지"} children={<LoginPage/>} onClose={() => setModalOpen(false)} />
       )}
+
       <Label htmlFor={"id"}>사랑해요</Label>
       <Input value={vvalue} id={"id"} placeholder={"아이디"} onInputChange={handleChange} onEnterKeyUp={handleChange} />
       <Button children={"확인"} onClick={() => setModalOpen(true)}></Button>
