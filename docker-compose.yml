@@ -34,10 +34,9 @@ services:
       - "8080:8080"
     networks:
       - jenkins-network
-      
   user:
     container_name: user
-    image: hyunholee/luckyseven-user
+    image: lifestooshort/luckyseven-user
     build:
       context: backend/user
       dockerfile: Dockerfile
