@@ -28,7 +28,7 @@ export const Container = styled.div`
   width: 100%;
   min-width: ${sizes.minWidth};
   max-width: ${sizes.maxWidth};
-  background-color: ${props => (props.$theme ? '#fff' : colors.black01)};
+  background-color: ${colors.black};
   border-radius: 12px 12px 0 0;
   overflow-y: scroll;
   &::-webkit-scrollbar {
