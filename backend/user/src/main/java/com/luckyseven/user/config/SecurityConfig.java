@@ -1,7 +1,7 @@
-package com.luckseven.user.config;
+package com.luckyseven.user.config;
 
-import com.luckseven.user.util.jwt.JWTUtil;
-import com.luckseven.user.util.jwt.JwtAuthenticationFilter;
+import com.luckyseven.user.util.jwt.JWTUtil;
+import com.luckyseven.user.util.jwt.JwtAuthenticationFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

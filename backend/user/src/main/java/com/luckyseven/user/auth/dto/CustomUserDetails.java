@@ -1,6 +1,6 @@
-package com.luckseven.user.auth.dto;
+package com.luckyseven.user.auth.dto;
 
-import com.luckseven.user.user.entity.User;
+import com.luckyseven.user.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;

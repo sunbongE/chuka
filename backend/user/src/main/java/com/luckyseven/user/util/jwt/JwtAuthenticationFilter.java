@@ -1,9 +1,9 @@
-package com.luckseven.user.util.jwt;
+package com.luckyseven.user.util.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.luckseven.user.auth.dto.CustomUserDetails;
-import com.luckseven.user.user.entity.User;
-import com.luckseven.user.user.repository.UserRepository;
+import com.luckyseven.user.auth.dto.CustomUserDetails;
+import com.luckyseven.user.user.entity.User;
+import com.luckyseven.user.user.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
