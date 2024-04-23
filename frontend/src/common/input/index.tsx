@@ -9,8 +9,8 @@ type InputType = {
   value: string;
   id: string;
   placeholder: string;
-  onInputChange: (value: string) => void;
-  onEnterKeyUp: (value: string) => void;
+  onInputChange?: (value: string) => void;
+  onEnterKeyUp?: (value: string) => void;
 };
 
 const Input = styled.input`
@@ -43,7 +43,7 @@ const index = (props: InputType) => {
 
   const handleEnterKeyUp = (e: KeyboardEvent<Element>) => {
     if (e.key === "Enter" && inputValue.trim() !== "") {
-      onEnterKeyUp(inputValue);
+      onEnterKeyUp?.(inputValue);
       setInputValue("");
     }
   };
