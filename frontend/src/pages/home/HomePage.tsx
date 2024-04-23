@@ -6,6 +6,7 @@ import Label from "@common/label"
 import Modal from "@common/modal"
 import LoginPage from "../login/LoginPage";
 import RModal from "@common/responsiveModal"
+import Header from "@common/header";
 
 const Container = styled.div`
   display: flex;
@@ -39,6 +40,7 @@ const HomePage = () => {
       <Label htmlFor={"id"}>사랑해요</Label>
       <Input value={vvalue} id={"id"} placeholder={"아이디"} onInputChange={handleChange} onEnterKeyUp={handleChange} />
       <Button children={"확인"} onClick={() => setModalOpen(true)}></Button>
+      <Header children={"펀딩하기"}/>
     </div>
   );
 };
