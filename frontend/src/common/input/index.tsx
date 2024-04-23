@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import styled from "styled-components";
 import { colors } from "@/styles/theme";
 
@@ -19,10 +19,6 @@ const Input = styled.input`
   border: 2px solid ${colors.gray};
   font-size: 1em;
 `;
-
-const Label = styled.label`
-  color: ${colors.mainPink};
-`
 
 const index = (props: InputType) => {
   const {
