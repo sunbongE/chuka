@@ -1,4 +1,4 @@
-package com.luckseven.user.user.entity;
+package com.luckyseven.user.user.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

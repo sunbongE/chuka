@@ -1,4 +1,4 @@
-package com.luckseven.user;
+package com.luckyseven.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

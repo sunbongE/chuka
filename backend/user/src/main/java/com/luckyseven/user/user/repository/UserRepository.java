@@ -1,6 +1,6 @@
-package com.luckseven.user.user.repository;
+package com.luckyseven.user.user.repository;
 
-import com.luckseven.user.user.entity.User;
+import com.luckyseven.user.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
