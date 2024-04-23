@@ -1,6 +1,5 @@
 def component = [
-        configServer: false,
-        eureka:true,
+        SCG:true,
 ]
 pipeline {
     agent any
@@ -15,7 +14,7 @@ pipeline {
                     steps {
                         script {
                             sh "ls -al"
-                            sh "docker compose -p luckyseven build --no-cache eureka"
+                            sh "docker compose -p luckyseven build --no-cache SCG"
                         }
                     }
                 }
