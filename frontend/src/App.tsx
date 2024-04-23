@@ -2,7 +2,6 @@ import { BrowserRouter } from "react-router-dom";
 
 
 import styled from "styled-components";
-import HomePage from "@pages/home/HomePage";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import ScrollToTop from "./utils/scrollToTop";
 import HomeRouter from "@routers/HomeRouter";
