@@ -43,8 +43,10 @@ const index = (props: InputType) => {
 
   const handleEnterKeyUp = (e: KeyboardEvent<Element>) => {
     if (e.key === "Enter" && inputValue.trim() !== "") {
-      onEnterKeyUp?.(inputValue);
-      setInputValue("");
+      if (onEnterKeyUp) {
+        onEnterKeyUp(inputValue);
+        setInputValue("");
+      }
     }
   };
 

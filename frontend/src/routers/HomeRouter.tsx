@@ -4,6 +4,7 @@ import HomePage from "@pages/home/HomePage";
 import CelebrationPage from "@/pages/celebration/CelebrationPage";
 import AlarmPage from "@/pages/alarm/AlarmPage";
 import MyPage from "@/pages/mypage/MyPage";
+import FundingRegPage from "@/pages/funding/FundingRegPage";
 
 
 const HomeRouter = () => {
@@ -12,6 +13,7 @@ const HomeRouter = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/celebrate" element={<CelebrationPage />} />
+      <Route path="/celebrate/funding" element={<FundingRegPage/>} />
       <Route path="/alarm" element={<AlarmPage />} />
       <Route path="/mypage" element={<MyPage />} />
     </Routes>

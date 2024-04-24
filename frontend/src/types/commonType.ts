@@ -12,3 +12,10 @@ export type ModalType = {
   children: React.ReactNode;
   onClose: () => void;
 };
+
+
+export type RecCardType = {
+  imgUrl: string;
+  title: string;
+  amount: string;
+};
