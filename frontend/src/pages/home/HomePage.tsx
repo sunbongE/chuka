@@ -10,6 +10,7 @@ import Navbar from "@common/navbar"
 import { colors } from "@styles/theme";
 import RadioButton from "@/common/radioButton";
 import { MdCake } from "react-icons/md";
+import Header from "@common/header";
 
 const Container = styled.div`
   display: flex;
