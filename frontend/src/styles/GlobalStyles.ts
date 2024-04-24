@@ -73,6 +73,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 12px;
         outline: none;
         border-radius: 10px;
+        border-color: ${colors.inputGray};
         &:focus {
             border-color: ${colors.mainPink};
             outline: none;

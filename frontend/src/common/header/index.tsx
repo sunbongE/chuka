@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const Header = styled.span`
   color: ${colors.black};
-  font-weight: 400;
+  font-weight: 700;
   flex-grow: 1;
   text-align: center;
 `;

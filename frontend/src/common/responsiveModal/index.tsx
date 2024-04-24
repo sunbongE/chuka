@@ -1,7 +1,7 @@
 
 import { ModalType } from '@/types/commonType'
 import * as r from '@common/responsiveModal/ResponsiveModal.styled'
-import { useRecoilValue } from 'recoil'
+
 
 const Index = ({ name, children, onClose }: ModalType) => {
 
