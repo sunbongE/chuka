@@ -41,8 +41,9 @@ services:
       context: frontend
       dockerfile: Dockerfile
     restart: always
+    command : npm run dev
     ports:
-      - "3000:5173"
+      - "3000:3000"
     networks:
       - jenkins-network
 networks:
