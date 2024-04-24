@@ -10,6 +10,10 @@ interface CustomInputProps {
   onClick?: () => void;
 }
 
+interface CalendarProps {
+  onDateChange: (date: Date) => void;
+}
+
 const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
   ({ value, onClick }, ref) => (
     <c.Input
@@ -18,16 +22,26 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
       value={value}
       ref={ref}
       placeholder="축하할 날짜를 선택해주세요."
+      readOnly
     />
   )
 );
 
-const index = () => {
+const index: React.FC<CalendarProps> = ({ onDateChange }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
+
+  const handleChange = (date: Date | null) => {
+    setSelectedDate(date);
+    if (date) {
+      onDateChange(date);
+    }
+    handleClose();
+    console.log("날짜선택:", date);
+  };
 
   return (
     <>
@@ -35,10 +49,7 @@ const index = () => {
       <DatePicker
         customInput={<CustomInput onClick={handleOpen} />}
         selected={selectedDate}
-        onChange={(date: Date) => {
-          setSelectedDate(date);
-          handleClose();
-        }}
+        onChange={handleChange}
         onCalendarOpen={handleOpen}
         onCalendarClose={handleClose}
         minDate={new Date()}
