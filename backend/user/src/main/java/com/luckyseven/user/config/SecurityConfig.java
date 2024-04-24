@@ -1,7 +1,7 @@
 package com.luckyseven.user.config;
 
 import com.luckyseven.user.util.jwt.JWTUtil;
-import com.luckyseven.user.util.jwt.JwtAuthenticationFilter;
+//import com.luckyseven.user.util.jwt.JwtAuthenticationFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +26,7 @@ import java.util.Collections;
 public class SecurityConfig {
 
 //        private final JWTFilter jwtFilter;
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+//    private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final JWTUtil jwtUtil;
 
     @Bean
@@ -81,8 +81,9 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/","/swagger-resources/**", "/v3/api-docs/**", "/swagger-ui/**", "/api/v1/auth/**","/api/v1/auth/test", "/api/v1/test").permitAll()
+                        .requestMatchers("/api/v1/users/**").permitAll()
                         .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/api/v1/users/**").hasRole("USER")
+                        .requestMatchers("/api/v1/users/me/**").hasRole("USER")
                         .anyRequest().authenticated());
 
 
@@ -90,8 +91,8 @@ public class SecurityConfig {
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         //JWTFilter 추가
-        http
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+//        http
+//                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

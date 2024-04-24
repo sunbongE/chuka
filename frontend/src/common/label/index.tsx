@@ -7,7 +7,7 @@ type LabelType = {
 };
 
 const Label = styled.label`
-  color: ${colors.pink01};
+  color: ${colors.mainPink};
 `;
 
 const index = (props: LabelType) => {

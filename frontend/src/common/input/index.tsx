@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import styled from "styled-components";
 import { colors } from "@/styles/theme";
 
@@ -9,8 +9,8 @@ type InputType = {
   value: string;
   id: string;
   placeholder: string;
-  onInputChange: (value: string) => void;
-  onEnterKeyUp: (value: string) => void;
+  onInputChange?: (value: string) => void;
+  onEnterKeyUp?: (value: string) => void;
 };
 
 const Input = styled.input`
@@ -19,10 +19,6 @@ const Input = styled.input`
   border: 2px solid ${colors.gray};
   font-size: 1em;
 `;
-
-const Label = styled.label`
-  color: ${colors.mainPink};
-`
 
 const index = (props: InputType) => {
   const {
@@ -47,8 +43,10 @@ const index = (props: InputType) => {
 
   const handleEnterKeyUp = (e: KeyboardEvent<Element>) => {
     if (e.key === "Enter" && inputValue.trim() !== "") {
-      onEnterKeyUp(inputValue);
-      setInputValue("");
+      if (onEnterKeyUp) {
+        onEnterKeyUp(inputValue);
+        setInputValue("");
+      }
     }
   };
 
