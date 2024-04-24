@@ -7,6 +7,9 @@ import Modal from "@common/modal"
 import LoginPage from "../login/LoginPage";
 import RModal from "@common/responsiveModal"
 import Navbar from "@common/navbar"
+import { colors } from "@styles/theme";
+import RadioButton from "@/common/radioButton";
+import { MdCake } from "react-icons/md";
 
 const Container = styled.div`
   display: flex;
@@ -19,15 +22,22 @@ const Wrap = styled.div`
 `;
 
 const HomePage = () => {
+  const [vvalue, setVvalue] = useState("");
 
   const [modalOpen, setModalOpen] = useState<boolean>(false)
 
-  const [vvalue, setVvalue] = useState("")
-  
-  const handleChange = (value:string) => {
+  const handleChange = (value: string) => {
     console.log(value);
-    setVvalue(value)
-  }
+    setVvalue(value);
+  };
+
+  //라디오 버튼 테스트
+  const [value, setValue] = useState("");
+  const [selected, setSelected] = useState("");
+  const handleRadioChange = (value: string) => {
+    setSelected(value); // 라디오 버튼 선택값을 변경
+    console.log("버튼선택", value);
+  };
 
 
 
@@ -41,6 +51,17 @@ const HomePage = () => {
       <Input value={vvalue} id={"id"} placeholder={"아이디"} onInputChange={handleChange} onEnterKeyUp={handleChange} />
       <Button children={"확인"} onClick={() => setModalOpen(true)}></Button>
       <Navbar current="home"/>
+      
+      <RadioButton
+        value="option1"
+        checked={selected === "option1"}
+        onChange={() => handleRadioChange("option1")}
+      >
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <MdCake />
+          <span>생일</span>
+        </div>
+      </RadioButton>
     </div>
   );
 };
