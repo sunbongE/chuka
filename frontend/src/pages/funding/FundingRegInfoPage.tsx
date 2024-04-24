@@ -1,62 +1,12 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { colors } from "@/styles/theme";
+import { useState } from "react";
 import Header from "@common/header";
 import DefaultFunding from "/img/img_default_funding.png";
 import { useLocation } from "react-router-dom";
+import * as F from "@pages/funding/FundingRegInfoPage.styled"
+import RModal from "@common/responsiveModal"
+import AddressInput from "@/components/addressInput"
+import PresentOpen from "@/components/funding/PresentOpen";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-`;
-
-const Inner = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-`;
-
-const Input = styled.input`
-  width: 339px;
-  height: 36px;
-  padding-left: 10px;
-`;
-
-const SmallInput = styled.input`
-  width: 100px;
-  height: 36px;
-  padding-left: 10px;
-`;
-
-const Label = styled.label``;
-
-const SmallBtn = styled.button`
-  width: 97px;
-  height: 36px;
-  background-color: ${colors.mainPink};
-  color: white;
-  font-size: 12px;
-`;
-
-const LargeBtn = styled.button`
-  width: 339px;
-  height: 49px;
-  background-color: ${colors.mainPink};
-  color: white;
-`;
-
-const Img = styled.img`
-  width: 155px;
-  height: 155px;
-`;
 
 const FundingRegInfoPage = () => {
   const location = useLocation();
@@ -75,15 +25,25 @@ const FundingRegInfoPage = () => {
     address_detail: "",
   });
 
+  const [isAddressOpen, setIsAddressOpen] = useState<boolean>(false)
+  const [isRegOpen, setIsRegOpen] = useState<boolean>(false)
+  
+
+  const onRegister = async () => {
+    console.log(regData)
+    // 새로운 모달 띄우기
+    setIsRegOpen(true)
+  }
+
   return (
     <>
       <Header children="펀딩 등록하기" />
-      <Container>
-        <Img src={DefaultFunding} />
-        <Wrap>
-          <Inner>
-            <Label htmlFor="introduce">"한 줄 펀딩 소개"</Label>
-            <Input
+      <F.Container>
+        <F.Img src={DefaultFunding} />
+        <F.Wrap>
+          <F.Inner>
+            <F.Label htmlFor="introduce">"한 줄 펀딩 소개"</F.Label>
+            <F.Input
               id="introduce"
               value={regData.introduce}
               placeholder="펀딩글을 소개하는 문구를 작성해주세요"
@@ -94,10 +54,10 @@ const FundingRegInfoPage = () => {
                 }))
               }
             />
-          </Inner>
-          <Inner>
-            <Label htmlFor="option">"펀딩 상품 상세 옵션"</Label>
-            <Input
+          </F.Inner>
+          <F.Inner>
+            <F.Label htmlFor="option">"펀딩 상품 상세 옵션"</F.Label>
+            <F.Input
               id="option"
               value={regData.option}
               placeholder="펀딩 받을 상품의 상세 옵션을 입력해주세요.(색상, 수량, 추가정보 등)"
@@ -108,10 +68,10 @@ const FundingRegInfoPage = () => {
                 }))
               }
             />
-          </Inner>
-          <Inner>
-            <Label htmlFor="goal_Amount">"펀딩 목표 금액"</Label>
-            <Input
+          </F.Inner>
+          <F.Inner>
+            <F.Label htmlFor="goal_Amount">"펀딩 목표 금액"</F.Label>
+            <F.Input
               id="goal_Amount"
               value={regData.goal_Amount}
               placeholder="금액을 입력해주세요(5000원 이상)"
@@ -122,10 +82,10 @@ const FundingRegInfoPage = () => {
                 }))
               }
             />
-          </Inner>
-          <Inner>
-            <Label htmlFor="end_date">"펀딩 종료 일자"</Label>
-            <Input
+          </F.Inner>
+          <F.Inner>
+            <F.Label htmlFor="end_date">"펀딩 종료 일자"</F.Label>
+            <F.Input
               id="end_date"
               value={regData.end_date}
               placeholder="펀딩 종료 일자를 입력해주세요(ex 20250518)"
@@ -136,39 +96,39 @@ const FundingRegInfoPage = () => {
                 }))
               }
             />
-          </Inner>
-          <Inner>
-            <Label htmlFor="receiver_name">"수령인 이름"</Label>
-            <Input
+          </F.Inner>
+          <F.Inner>
+            <F.Label htmlFor="receiver_name">"수령인 이름"</F.Label>
+            <F.Input
               id="receiver_name"
               value={regData.receiver_name}
               placeholder="이름 입력"
               onChange={(e) =>
                 setRegData((prevData) => ({
                   ...prevData,
-                  end_date: e.target.value,
+                  receiver_name: e.target.value,
                 }))
               }
             />
-          </Inner>
-          <Inner>
-            <Label htmlFor="receiver_phone">"수령인 연락처"</Label>
-            <Input
+          </F.Inner>
+          <F.Inner>
+            <F.Label htmlFor="receiver_phone">"수령인 연락처"</F.Label>
+            <F.Input
               id="receiver_phone"
               value={regData.receiver_phone}
               placeholder="휴대폰 번호 입력(ex 01043286612)"
               onChange={(e) =>
                 setRegData((prevData) => ({
                   ...prevData,
-                  end_date: e.target.value,
+                  receiver_phone: e.target.value,
                 }))
               }
             />
-          </Inner>
+          </F.Inner>
 
-          <Label htmlFor="address"></Label>
+          <F.Label htmlFor="address"></F.Label>
           <div style={{ display: "flex", gap: "10px" }}>
-            <SmallInput
+            <F.SmallInput
               id="address"
               value={regData.postal_code}
               placeholder="우편번호"
@@ -179,10 +139,10 @@ const FundingRegInfoPage = () => {
                 }))
               }
             />
-            <SmallBtn>우편번호 검색</SmallBtn>
+            <F.SmallBtn onClick={() => setIsAddressOpen(true)}>우편번호 검색</F.SmallBtn>
           </div>
 
-          <Input
+          <F.Input
             id="address"
             value={regData.address}
             placeholder="주소를 입력해주세요"
@@ -193,7 +153,7 @@ const FundingRegInfoPage = () => {
               }))
             }
           />
-          <Input
+          <F.Input
             id="address"
             value={regData.address_detail}
             placeholder="상세 주소를 입력해주세요"
@@ -204,9 +164,17 @@ const FundingRegInfoPage = () => {
               }))
             }
           />
-          <LargeBtn>펀딩 상품 등록</LargeBtn>
-        </Wrap>
-      </Container>
+          <F.LargeBtn onClick={onRegister}>펀딩 상품 등록</F.LargeBtn>
+          
+          { isAddressOpen &&
+          <RModal name={"우편번호 검색"} children={<AddressInput/>} onClose={() => setIsAddressOpen(false)} />
+          }
+
+          { isRegOpen &&
+            <RModal name={"펀딩 등록 신청 완료"} children={<PresentOpen/>} onClose={() => setIsRegOpen(false)} />
+          }
+        </F.Wrap>
+      </F.Container>
     </>
   );
 };
