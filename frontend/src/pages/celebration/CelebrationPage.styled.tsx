@@ -1,11 +1,11 @@
 import styled from "styled-components";
+import { colors } from "@styles/theme";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const Wrap = styled.div`
+  justify-content: center;
+  align-items: center;
   height: 100%;
   padding-top: 20px;
   padding-bottom: 60px;
@@ -21,8 +21,15 @@ export const Wrap = styled.div`
   }
 `;
 
-export const DateInput = styled.div`
+export const InputWrap = styled.div`
   display: flex;
-  align-items: center;
-  position: relative;
+  flex-direction: column;
+  margin-bottom: 10px;
 `;
+
+export const P = styled.p`
+  color: ${colors.gray};
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 5px;
+`
