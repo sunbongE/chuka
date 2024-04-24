@@ -1,4 +1,6 @@
-FROM node:lts-alpine as builder
+FROM node:20.10.0 as builder
+
+#FROM node:lts-alpine as builder
 
 WORKDIR /frontend
 
@@ -10,4 +12,4 @@ RUN npm install
 
 COPY . ./
 
-EXPOSE 5173
+EXPOSE 3000
