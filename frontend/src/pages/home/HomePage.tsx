@@ -3,14 +3,14 @@ import styled from "styled-components";
 import Input from "@common/input"
 import { useState } from "react";
 import Label from "@common/label"
-import Modal from "@common/modal"
+
 import LoginPage from "../login/LoginPage";
 import RModal from "@common/responsiveModal"
 import Navbar from "@common/navbar"
-import { colors } from "@styles/theme";
+
 import RadioButton from "@/common/radioButton";
 import { MdCake } from "react-icons/md";
-import Header from "@common/header";
+
 
 const Container = styled.div`
   display: flex;
