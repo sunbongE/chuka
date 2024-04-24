@@ -60,6 +60,9 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
     label {
+        color: ${colors.mainPink};
+        font-size: 12px;
+        
         &:focus {
             color: ${colors.mainPink};
             outline: none;
