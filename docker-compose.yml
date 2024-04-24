@@ -34,7 +34,17 @@ services:
       - "8080:8080"
     networks:
       - jenkins-network
-
+  frontend:
+    container_name: frontend
+    image: taehopark/luckyseven-frontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "5173:5173"
+    networks:
+      - jenkins-network
 networks:
   jenkins-network:
     external: true
