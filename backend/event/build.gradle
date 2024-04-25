@@ -66,6 +66,10 @@ dependencies {
 	implementation 'io.jsonwebtoken:jjwt-impl:0.12.3'
 	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.3'
 
+	// tsid
+//	implementation group: 'com.github.f4b6a3', name: 'tsid-creator', version: '5.2.6'
+	// ulid
+	implementation group: 'com.github.f4b6a3', name: 'ulid-creator', version: '5.2.3'
 }
 
 dependencyManagement {
