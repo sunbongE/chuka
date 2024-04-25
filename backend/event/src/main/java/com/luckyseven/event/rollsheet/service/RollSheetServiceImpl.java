@@ -2,7 +2,6 @@ package com.luckyseven.event.rollsheet.service;
 
 import com.luckyseven.event.rollsheet.dto.CreateRollSheetDto;
 import com.luckyseven.event.rollsheet.entity.RollSheet;
-import com.luckyseven.event.rollsheet.entity.Shape;
 import com.luckyseven.event.rollsheet.repository.EventRepository;
 import com.luckyseven.event.rollsheet.repository.RollSheetRepository;
 import lombok.RequiredArgsConstructor;
@@ -59,5 +58,10 @@ public class RollSheetServiceImpl implements RollSheetService {
         log.info("rollSheets: {}", rollSheets);
 
         return rollSheets;
+    }
+
+    @Override
+    public void deleteByEventId(int eventId) {
+        rollSheetRepository.deleteAllByEventId(eventId);
     }
 }

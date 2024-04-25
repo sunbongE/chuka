@@ -10,4 +10,5 @@ public interface RollSheetService {
 
      RollSheet createRollSheet(CreateRollSheetDto rollSheetDto, String userId, int eventId);
      List<RollSheet> getRollSheetListWithEventId(int eventId) throws NoSuchElementException;
+     void deleteByEventId(int eventId);
 }

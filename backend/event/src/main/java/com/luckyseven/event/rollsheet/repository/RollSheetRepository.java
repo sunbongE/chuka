@@ -8,5 +8,7 @@ import java.util.List;
 public interface RollSheetRepository extends MongoRepository<RollSheet, String> {
 
     List<RollSheet> findByEventId(int eventId);
+    int countByEventId(int eventId);
+    void deleteAllByEventId(int eventId);
 
 }
