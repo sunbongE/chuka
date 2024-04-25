@@ -16,4 +16,6 @@ public interface EventService {
     EventDto createEvent(CreateEventDto eventDto, String userId) throws EmptyFileException, BigFileException, NotValidExtensionException, IOException;
     Event getEvent(int eventId);
     Event editEvent(EditEventDto eventDto, int eventId, String userId);
+    void deleteEvent(int eventId) throws UnsupportedOperationException;
+    boolean isMyEvent(int eventId, String userId);
 }
