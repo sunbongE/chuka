@@ -1,10 +1,12 @@
-package com.luckyseven.funding.funding.entity;
+package com.luckyseven.funding.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 
 import java.time.LocalDate;
@@ -12,6 +14,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Builder
 @ToString
 @DynamicInsert
 public class Funding {
@@ -60,9 +63,13 @@ public class Funding {
     @Column
     private String productName;
 
+    @Column
+    private Integer productPrice;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDate endDate;
 
+    @CreationTimestamp
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime createTime;
 

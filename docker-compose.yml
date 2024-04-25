@@ -34,6 +34,18 @@ services:
       - "8080:8080"
     networks:
       - jenkins-network
+  frontend:
+    container_name: frontend
+    image: taehopark/luckyseven-frontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    restart: always
+    command : npm run dev
+    ports:
+      - "5000:5000"
+    networks:
+      - jenkins-network
   user:
     container_name: user
     image: lifestooshort/luckyseven-user
@@ -56,7 +68,6 @@ services:
       - "8082:8082"
     networks:
       - jenkins-network
-
 networks:
   jenkins-network:
     external: true
