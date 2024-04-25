@@ -1,17 +1,17 @@
 import { useState } from "react";
 import present from "/img/img_present_funding.png";
 import RecCard from "@common/RecCard";
-import * as F from "@pages/funding/FundingRegPage.styled";
+import * as F from "@/pages/celebration/funding/FundingRegPage.styled";
 import Header from "@common/header";
 import { useNavigate } from "react-router-dom";
 
 const FundingRegPage = () => {
   const [productLink, setProductLink] = useState("");
-	const navigate = useNavigate()
+  const navigate = useNavigate();
 
-	const handleClick = () => {
-		navigate('/celebrate/funding-info/', { state: {productLink} })
-	}
+  const handleClick = () => {
+    navigate("/celebrate/funding-info/", { state: { productLink } });
+  };
 
   return (
     <>

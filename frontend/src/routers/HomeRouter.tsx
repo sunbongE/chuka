@@ -4,8 +4,9 @@ import HomePage from "@pages/home/HomePage";
 import CelebrationPage from "@/pages/celebration/CelebrationPage";
 import AlarmPage from "@/pages/alarm/AlarmPage";
 import MyPage from "@/pages/mypage/MyPage";
-import FundingRegPage from "@/pages/funding/FundingRegPage";
-import FundingRegInfoPage from "@/pages/funding/FundingRegInfoPage";
+import FundingRegPage from "@/pages/celebration/funding/FundingRegPage";
+import FundingRegInfoPage from "@/pages/celebration/funding/FundingRegInfoPage";
+import PaymentPage from "@/pages/celebration/funding/PaymentPage";
 
 const HomeRouter = () => {
   return (
@@ -13,8 +14,10 @@ const HomeRouter = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/celebrate" element={<CelebrationPage />} />
-      <Route path="/celebrate/funding" element={<FundingRegPage/>} />
-      <Route path="/celebrate/funding-info" element={<FundingRegInfoPage/>} />
+      <Route path="/celebrate/funding" element={<FundingRegPage />} />
+      <Route path="/celebrate/funding-info" element={<FundingRegInfoPage />} />
+      <Route path="/celebrate/payment" element={<PaymentPage />} />
+
       <Route path="/alarm" element={<AlarmPage />} />
       <Route path="/mypage" element={<MyPage />} />
     </Routes>
