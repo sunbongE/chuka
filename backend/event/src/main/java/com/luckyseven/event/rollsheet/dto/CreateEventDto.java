@@ -21,9 +21,6 @@ import java.time.LocalDateTime;
 @Schema(description = "이벤트 생성 Dto")
 public class CreateEventDto {
 
-    @Schema(description = "사용자 id")
-    private String userId;
-
     @Schema(description = "이벤트 종류")
     private EventType type;
 

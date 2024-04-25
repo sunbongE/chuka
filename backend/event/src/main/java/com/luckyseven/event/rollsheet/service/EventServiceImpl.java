@@ -30,9 +30,9 @@ public class EventServiceImpl implements EventService {
     private final EventRepository eventRepository;
 
     @Override
-    public EventDto createEvent(CreateEventDto eventDto) throws EmptyFileException, BigFileException, NotValidExtensionException, IOException {
+    public EventDto createEvent(CreateEventDto eventDto, String userId) throws EmptyFileException, BigFileException, NotValidExtensionException, IOException {
         Event event = new Event();
-        event.setUserId(eventDto.getUserId());
+        event.setUserId(userId);
         event.setPageUri(UlidCreator.getUlid().toString());
         event.setType(eventDto.getType());
         event.setTitle(eventDto.getTitle());
@@ -49,6 +49,13 @@ public class EventServiceImpl implements EventService {
         event.setCreateTime(LocalDateTime.now());
 
         return EventDto.of(eventRepository.save(event));
+    }
+
+    @Override
+    public Event getEvent(int eventId) {
+        Event event = eventRepository.findByEventId(eventId);
+
+        return event;
     }
 
 
