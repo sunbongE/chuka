@@ -168,19 +168,19 @@ const Index = () => {
         </c.ThemeWrap>
       </c.InputWrap>
       <c.InputWrap>
-        <Label htmlFor="secret" children="ㅊㅋ 공개 여부" />
+        <Label htmlFor="secret" children="ㅊㅋ 노출 여부" />
         <c.PublicWrap>
           <c.IsPublicButton
             onClick={() => onClickIsPublic(isPublic[0])}
             $active={targetIsPublic === isPublic[0]}
           >
-            {"공개"}
+            {"허용함"}
           </c.IsPublicButton>
           <c.IsPublicButton
             onClick={() => onClickIsPublic(isPublic[1])}
             $active={targetIsPublic === isPublic[1]}
           >
-            {"비공개"}
+            {"허용하지 않음"}
           </c.IsPublicButton>
         </c.PublicWrap>
       </c.InputWrap>
