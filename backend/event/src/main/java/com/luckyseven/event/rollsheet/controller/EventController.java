@@ -4,6 +4,7 @@ import com.luckyseven.event.common.exception.BigFileException;
 import com.luckyseven.event.common.exception.EmptyFileException;
 import com.luckyseven.event.common.exception.NotValidExtensionException;
 import com.luckyseven.event.rollsheet.dto.CreateEventDto;
+import com.luckyseven.event.rollsheet.dto.EditEventDto;
 import com.luckyseven.event.rollsheet.dto.EventDto;
 import com.luckyseven.event.rollsheet.entity.Event;
 import com.luckyseven.event.rollsheet.service.EventService;
@@ -72,6 +73,20 @@ public class EventController {
     })
     public ResponseEntity<Event> getEvent(@PathVariable("eventId") int eventId) {
         Event event = eventService.getEvent(eventId);
+
+        return ResponseEntity.status(200).body(event);
+    }
+
+    @PutMapping(value = "/{eventId}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    @Operation(summary = "이벤트 정보 수정", description = "이벤트 정보를 수정한다.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "성공"),
+            @ApiResponse(responseCode = "500", description = "서버 오류"),
+    })
+    public ResponseEntity<Event> editEvent(
+            @PathVariable("eventId") int eventId, @ModelAttribute EditEventDto eventDto, @RequestHeader("loggedInUser") String userId
+    ) {
+        Event event = eventService.editEvent(eventDto, eventId, userId);
 
         return ResponseEntity.status(200).body(event);
     }
