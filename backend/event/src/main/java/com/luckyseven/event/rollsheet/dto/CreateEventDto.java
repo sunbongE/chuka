@@ -25,7 +25,7 @@ public class CreateEventDto {
     private String userId;
 
     @Schema(description = "이벤트 종류")
-    private String type;
+    private EventType type;
 
     @Schema(description = "이벤트 제목")
     private String title;
@@ -34,7 +34,7 @@ public class CreateEventDto {
     private LocalDate date;
 
     @Schema(description = "테마")
-    private String theme;
+    private Theme theme;
 
     @Schema(description = "공개여부")
     private Boolean visibility;

@@ -34,14 +34,17 @@ public class EventServiceImpl implements EventService {
         Event event = new Event();
         event.setUserId(eventDto.getUserId());
         event.setPageUri(UlidCreator.getUlid().toString());
-        event.setType(EventType.valueOf(eventDto.getType()));
+        event.setType(eventDto.getType());
         event.setTitle(eventDto.getTitle());
         event.setDate(eventDto.getDate());
+        log.info("bannerImage: {}", eventDto.getBannerImage());
         //Amazon S3에 배너 이미지 업로드 후 경로 저장
-        String[] bannerPath = fileService.uploadBannerImageToAmazonS3(eventDto.getBannerImage());
-        event.setBanner(bannerPath[0]);
-        event.setBannerThumbnail(bannerPath[1]);
-        event.setTheme(Theme.valueOf(eventDto.getTheme()));
+        if (eventDto.getBannerImage() != null) {
+            String[] bannerPath = fileService.uploadBannerImageToAmazonS3(eventDto.getBannerImage());
+            event.setBanner(bannerPath[0]);
+            event.setBannerThumbnail(bannerPath[1]);
+        }
+        event.setTheme(eventDto.getTheme());
         event.setVisibility(eventDto.getVisibility());
         event.setCreateTime(LocalDateTime.now());
 
