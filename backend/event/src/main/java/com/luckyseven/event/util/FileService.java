@@ -41,7 +41,7 @@ public class FileService {
     public String[] uploadBannerImageToAmazonS3(MultipartFile multipartFile) throws EmptyFileException, BigFileException, NotValidExtensionException, IOException {
         //1. 파일 유효성 검사
         //1-1. 업로드 한 파일이 비어있는지 확인
-        if (multipartFile.isEmpty()) {
+        if (multipartFile != null && multipartFile.isEmpty()) {
             throw new EmptyFileException();
         }
 
