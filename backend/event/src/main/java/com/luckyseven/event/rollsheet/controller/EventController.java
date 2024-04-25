@@ -5,6 +5,7 @@ import com.luckyseven.event.common.exception.EmptyFileException;
 import com.luckyseven.event.common.exception.NotValidExtensionException;
 import com.luckyseven.event.rollsheet.dto.CreateEventDto;
 import com.luckyseven.event.rollsheet.dto.EventDto;
+import com.luckyseven.event.rollsheet.entity.Event;
 import com.luckyseven.event.rollsheet.service.EventService;
 import com.luckyseven.event.util.FileService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -16,10 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -44,11 +42,11 @@ public class EventController {
             @ApiResponse(responseCode = "500", description = "서버 오류"),
             @ApiResponse(responseCode = "503", description = "서버 오류 (File IO)")
     })
-    public ResponseEntity<?> createEvent(@ModelAttribute CreateEventDto createEventDto) {   //java.lang.IllegalArgumentException: No enum constant com.luckyseven.event.rollsheet.entity.EventType.생일
+    public ResponseEntity<?> createEvent(@ModelAttribute CreateEventDto createEventDto, @RequestHeader("loggedInUser") String userId) {   //java.lang.IllegalArgumentException: No enum constant com.luckyseven.event.rollsheet.entity.EventType.생일
         EventDto event = null;
 
         try {
-            event = eventService.createEvent(createEventDto);
+            event = eventService.createEvent(createEventDto, userId);
         } catch (EmptyFileException e) {
             //400
             return ResponseEntity.status(400).body("파일이 비어있습니다.");
@@ -62,6 +60,18 @@ public class EventController {
             //415
             return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE).body("지원하는 확장자가 아닙니다. 지원하는 이미지 형식: jpg, png, jpeg, gif, webp");
         }
+
+        return ResponseEntity.status(200).body(event);
+    }
+
+    @GetMapping("/{eventId}")
+    @Operation(summary = "이벤트 정보 조회", description = "이벤트 정보를 조회한다.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "성공"),
+            @ApiResponse(responseCode = "500", description = "서버 오류"),
+    })
+    public ResponseEntity<Event> getEvent(@PathVariable("eventId") int eventId) {
+        Event event = eventService.getEvent(eventId);
 
         return ResponseEntity.status(200).body(event);
     }

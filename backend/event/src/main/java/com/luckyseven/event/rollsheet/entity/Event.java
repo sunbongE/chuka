@@ -20,6 +20,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int eventId;
 
+    @Column(nullable = false)
     private String userId;
 
     @Column(length = 26, nullable = false)
