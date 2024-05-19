@@ -37,7 +37,6 @@ public class TransactionServiceImpl implements TransactionService {
         if (transactionRepository.existsByTransactionIdOrPgId(transactionId, pgId)) {
             throw new IllegalCallerException("이미 결제된 건입니다.");
         }
-        log.info("pgId: {}",pgId);
         final IamportClient iamportClient = new IamportClient(REST_API_KEY, REST_API_SECERT_KEY);
         try {
             IamportResponse<Payment> iamportResponse = iamportClient.paymentByImpUid(pgId);
@@ -46,10 +45,6 @@ public class TransactionServiceImpl implements TransactionService {
             final String pgTransactionId = iamportResponse.getResponse().getMerchantUid();
             final String pgStatus = iamportResponse.getResponse().getStatus();
 
-            log.info("from PG DTO: PG Amount: {}, PG Transaction ID: {}, PG Status: {}", pgAmount, pgTransactionId, pgStatus);
-            log.info("from frontpage DTO:  PG Amount: {}, PG Transaction ID: {}", amount, transactionId);
-            log.info("pgAmount vs Amount {}",pgAmount == amount);
-            log.info("pgTransactionId vs TransactionId {}",pgTransactionId.equals(transactionId));
             if (!pgStatus.equals("paid")) {
                 throw new IllegalCallerException("결제 오류입니다.");
             }
@@ -83,10 +78,4 @@ public class TransactionServiceImpl implements TransactionService {
         }
     }
 
-    @Override
-    public Boolean cancelPayment(String pgId){
-        final IamportClient iamportClient = new IamportClient(REST_API_KEY, REST_API_SECERT_KEY);
-        //TODO 미완성코드
-        return true;
-    }
 }
