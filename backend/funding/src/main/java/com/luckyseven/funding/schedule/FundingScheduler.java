@@ -31,10 +31,6 @@ public class FundingScheduler {
     private final SponsorRepository sponsorRepository;
     private final ProducerService producerService;
 
-    /**
-     * 매일 자정에 ONGOING인 result중에서 기한을 지난 것이 있으면 COMPLETE로 변경
-     * 이거 사실은 fail처리라서 알림X 펀딩 성공처리는 SponsorServiceImpl에 있습니당!
-     */
     @Scheduled(cron = "0 0 0 * * ?")
     @Transactional
     public void updateFundingResults() {
@@ -45,29 +41,4 @@ public class FundingScheduler {
         }
         fundingRepository.saveAll(fundings);
     }
-
-    /**
-     * Dday 펀딩에서도 작성해야하는줄 알고 만들어버림 주석처리할게용~~
-     */
-//    @Async
-//    @Scheduled(cron = "0 0 9 * * ?")
-//    @Transactional
-//    public void checkDdayFundings() {
-//        LocalDate today = LocalDate.now();
-//        List<Funding> fundings = fundingRepository.findDdayFundings(FundingStatus.APPROVE, FundingResult.ONGOING, today);
-//        Set<FundingToNotificationDto> notificationSet = new HashSet<>();
-//
-//        for (Funding funding : fundings) {
-//            notificationSet.add(new FundingToNotificationDto(funding.getUserId(), funding.getFundingId(), Topic.DDAY_ALARM));
-//            for (Sponsor sponsor : funding.getSponsorList()) {
-//                if(sponsor.getUserId()!=null){
-//                    notificationSet.add(new FundingToNotificationDto(sponsor.getUserId(), funding.getFundingId(), Topic.DDAY_ALARM));
-//                }
-//            }
-//        }
-////        for (FundingToNotificationDto notificationDto : notificationSet) {
-////            producerService.sendFundingStatusMessage(notificationDto);
-////        }
-//    }
-
 }

@@ -63,8 +63,8 @@ const NotificationListItem = (props: NotificaionProps) => {
       case "ROLLING_CREATE":
         return {
           src: "icon/icon_goRoll.png",
-          width: "26px",
-          height: "25px",
+          width: "18px",
+          height: "18px",
         };
       case "FUNDING_COMPLETE":
         return {
@@ -84,7 +84,7 @@ const NotificationListItem = (props: NotificaionProps) => {
       <N.Wrap>
         <N.LeftWrap>
           <N.ImgWrap>
-            <img src={icon?.src} alt="icon" />
+            <img src={icon?.src} alt="icon" width={icon?.width} height={icon?.height}/>
           </N.ImgWrap>
           <N.TextWrap>
             <N.Comment>{content}</N.Comment>

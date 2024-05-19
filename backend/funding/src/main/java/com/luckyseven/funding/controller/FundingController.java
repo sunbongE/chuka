@@ -44,7 +44,6 @@ public class FundingController {
 
     public ResponseEntity<?> createFunding(@RequestBody final FundingCreateReq dto, @RequestHeader("loggedInUser") String userId) {
         try {
-            //log.debug(dto.toString());
             final int fundingId = fundingService.createFunding(dto, userId);
             return ResponseEntity.status(HttpStatus.OK).body(fundingId);
 
@@ -259,21 +258,6 @@ public class FundingController {
         } catch (Exception e) {
             log.info("[ERROR] : {}", e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
-    }
-
-    @PostMapping("/test")
-    @Operation(
-            summary = "테스트",
-            description = "결제 검증용")
-    public ResponseEntity<?> test(@RequestBody final FundingJoinReq dto, @RequestHeader(name = "loggedInUser", required = false) String userId) {
-        try {
-            final String transactionId = sponsorService.test(dto);
-            return ResponseEntity.status(HttpStatus.OK).body(transactionId);
-        } catch (Exception e) {
-            log.info("[ERROR] : {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(e.getMessage());
         }
     }
 
