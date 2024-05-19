@@ -15,7 +15,6 @@ def send_message(info):
     
     message = json.dumps(info)
     channel.basic_publish(exchange=PUB_EXCHANGE_NAME, routing_key="", body=message)
-    print(" [x] Sent", info)
     
     connection.close()
 
@@ -30,13 +29,11 @@ def receive_message():
     
     def callback(ch, method, properties, body):
         data = json.loads(body)
-        print(" [x] Received", data.get('productUrl'))
         selectors = get_selectors(data.get('productUrl'))
         info = extract_shopping_info(data.get('productUrl'), selectors)
         info.update({'fundingId': data.get('fundingId'), 'userId': data.get('userId')})
         if selectors is None:
             info.update({"status": 401, "message": "Unsupported shopping site"})
-            print(info)
             send_message(info)
             return
         
@@ -49,9 +46,7 @@ def receive_message():
             
         except Exception as e:
             info = {"status": 500, "message": str(e)}
-        print(info)
         send_message(info)
         
     channel.basic_consume(on_message_callback=callback, queue=QUEUE_NAME, auto_ack=True)
-    print(' [*] Waiting for messages. To exit press CTRL+C')
     channel.start_consuming()

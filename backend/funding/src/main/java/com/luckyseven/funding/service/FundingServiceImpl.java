@@ -39,7 +39,7 @@ public class FundingServiceImpl implements FundingService {
 
     @Override
     public int createFunding(final FundingCreateReq dto, String userId) throws IllegalAccessException {
-        //해당 이벤트 번호가 있는지 확인 && 해당 이벤트 만든 사람과 펀딩 만드는 사람이 같은지 확인
+
         EventDto eventDto = eventFeignClient.getEvent(dto.getEventId());
         if(!eventDto.getUserId().equals(userId)){
             throw new IllegalAccessException("이벤트를 만든 사람과 일치하지 않습니다");
