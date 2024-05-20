@@ -151,4 +151,81 @@
     "$date": "2024-05-14T08:25:05.174Z"
   },
   "_class": "com.luckyseven.event.review.entity.Review"
+},
+{
+  "_id": {
+    "$oid": "6646db31116cc213c5e31792"
+  },
+  "content": "친구들과 추억을 공유할 수 있어 좋아요!",
+  "phoneNumber": "",
+  "createTime": {
+    "$date": "2024-05-17T04:21:05.563Z"
+  },
+  "_class": "com.luckyseven.event.review.entity.Review"
+},
+{
+  "_id": {
+    "$oid": "6649df3339f0d84581424ef2"
+  },
+  "content": "사용자가 쉽고 편하게 이용할 수 있러서 좋은 서비스 인것같아요\n",
+  "phoneNumber": "01050460031",
+  "createTime": {
+    "$date": "2024-05-19T11:14:59.489Z"
+  },
+  "_class": "com.luckyseven.event.review.entity.Review"
+},
+{
+  "_id": {
+    "$oid": "6649f54539f0d84581424ef9"
+  },
+  "content": "사용자가 쉽고 편하게 이용할 수 있어 좋은 서비스인 것 같아요. 번창하세요!",
+  "phoneNumber": "01050460031",
+  "createTime": {
+    "$date": "2024-05-19T12:49:09.985Z"
+  },
+  "_class": "com.luckyseven.event.review.entity.Review"
+},
+{
+  "_id": {
+    "$oid": "664a00c439f0d84581424efb"
+  },
+  "content": "사용자가 쉽고 편하게 이용할 수 있어 좋은 서비스인 것 같아요. 번창하세요!",
+  "phoneNumber": "01050460031",
+  "createTime": {
+    "$date": "2024-05-19T13:38:12.717Z"
+  },
+  "_class": "com.luckyseven.event.review.entity.Review"
+},
+{
+  "_id": {
+    "$oid": "664a08aa39f0d84581424efd"
+  },
+  "content": "건강 생각하셔야죠ㅎㅎ",
+  "phoneNumber": "01050460031",
+  "createTime": {
+    "$date": "2024-05-19T14:11:54.461Z"
+  },
+  "_class": "com.luckyseven.event.review.entity.Review"
+},
+{
+  "_id": {
+    "$oid": "664a0cfe39f0d84581424eff"
+  },
+  "content": "사용자가 쉽고 편하게 이용할 수 있어 좋은 서비스인 것 같아요. 번창하세요!",
+  "phoneNumber": "01050460031",
+  "createTime": {
+    "$date": "2024-05-19T14:30:22.852Z"
+  },
+  "_class": "com.luckyseven.event.review.entity.Review"
+},
+{
+  "_id": {
+    "$oid": "664a132439f0d84581424f02"
+  },
+  "content": "사용자가 쉽고 편하게 이용할 수 있어 좋은 서비스인 것 같아요. 번창하세요!",
+  "phoneNumber": "01050460031",
+  "createTime": {
+    "$date": "2024-05-19T14:56:36.651Z"
+  },
+  "_class": "com.luckyseven.event.review.entity.Review"
 }]
