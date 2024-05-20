@@ -15,7 +15,7 @@
 - [API명세서](https://broadleaf-rosehip-ec8.notion.site/API-297fa08688a645059db2732bbdb4bea1)
 - [화면정의서](https://www.figma.com/design/6apeUwpzSfb3UotQeXqGcF/%E3%85%8A%E3%85%8B?node-id=0-1&t=v86S4JliUXhMWVY6-0)
 - [포팅매뉴얼](./exec/추카_포팅_매뉴얼.docx)
-- [발표자료]()
+- [발표자료](./exec/10기_자율PJT_발표자료_C107.pdf)
 
 ---
 
